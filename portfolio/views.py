@@ -1,13 +1,16 @@
-from django.shortcuts import render
 from django.utils import timezone
+from django.views.generic import TemplateView
 
-from .models import Project
+from .selectors import get_featured_projects
 
 
-def home(request):
-    projects = Project.objects.filter(featured=True)
-    return render(
-        request,
-        'portfolio/home.html',
-        {'projects': projects, 'current_year': timezone.now().year},
-    )
+class HomeView(TemplateView):
+    template_name = 'portfolio/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            projects=get_featured_projects(),
+            current_year=timezone.localdate().year,
+        )
+        return context

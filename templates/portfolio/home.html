@@ -32,7 +32,7 @@
         </div>
         <div class="portrait-card">
             <div class="portrait-topline"><span>AFRAIM / 01</span><span>CAIRO, EG</span></div>
-            <img class="img-fluid" src="{% static 'images/afraim-profile.jpg' %}" alt="Afraim Elkes Eleia standing beneath a stone arch">
+            <img class="img-fluid" src="{% static 'images/afraim-profile.jpg' %}" alt="Afraim Elkes Eleia standing beneath a stone arch" width="2880" height="4320" decoding="async" fetchpriority="high">
             <div class="portrait-caption">
                 <span>Building for the<br>small screen</span>
                 <span class="portrait-arrow" aria-hidden="true">↗</span>
@@ -59,63 +59,11 @@
         <p class="section-note col-lg-4 px-lg-4 px-0">A closer look at the products and ideas shaping my mobile development journey.</p>
     </div>
 
-    <article class="featured-project reveal" data-tilt>
-        <a class="project-visual" href="https://github.com/AfraimElkesEleia/Transportation-App-Graduation-Project" target="_blank" rel="noreferrer" aria-label="View the Rihla graduation project repository on GitHub">
-            <img class="img-fluid" src="{% static 'images/rihla-project-banner.png' %}" alt="Rihla mobile transport application presentation">
-            <span class="project-number">01</span>
-            <span class="view-project">View repository <b aria-hidden="true">↗</b></span>
-        </a>
-        <div class="project-copy row g-4 mx-0" id="rihla-overview">
-            <div class="col-lg-6 px-0">
-                <p class="project-type">Graduation project · Mobile application</p>
-                <h3>Rihla</h3>
-            </div>
-            <div class="project-summary col-lg-6 px-lg-4 px-0">
-                <p>
-                    A Flutter transportation platform that brings trip planning, seat
-                    booking, digital tickets, and payments into one connected experience.
-                </p>
-                <ul class="project-feature-list">
-                    <li>Direct, indirect, round-trip, and multi-destination journey search</li>
-                    <li>Real-time seat maps, wallet checkout, and QR boarding passes</li>
-                    <li>Travel alerts, loyalty rewards, and a ticket resale marketplace</li>
-                </ul>
-                <ul class="tag-list d-flex flex-wrap list-unstyled" aria-label="Project areas">
-                    <li>Flutter</li><li>Bloc / Cubit</li><li>REST API</li><li>Graduation project</li>
-                </ul>
-                <a class="project-repo-link" href="https://github.com/AfraimElkesEleia/Transportation-App-Graduation-Project" target="_blank" rel="noreferrer">Explore Rihla on GitHub <span aria-hidden="true">↗</span></a>
-            </div>
-        </div>
-    </article>
-
-    <article class="featured-project reveal" data-tilt>
-        <a class="project-visual" href="https://github.com/AfraimElkesEleia/VoltMarket" target="_blank" rel="noreferrer" aria-label="View the VoltMarket repository on GitHub">
-            <img class="img-fluid" src="{% static 'images/voltmarket-project-banner.png' %}" alt="VoltMarket electronics e-commerce mobile application presentation" loading="lazy">
-            <span class="project-number">02</span>
-            <span class="view-project">View repository <b aria-hidden="true">↗</b></span>
-        </a>
-        <div class="project-copy row g-4 mx-0" id="voltmarket-overview">
-            <div class="col-lg-6 px-0">
-                <p class="project-type">E-commerce · Mobile application</p>
-                <h3>VoltMarket</h3>
-            </div>
-            <div class="project-summary col-lg-6 px-lg-4 px-0">
-                <p>
-                    An electronics shopping app built with Flutter, using Supabase for
-                    product data and storage while Cubit keeps the experience responsive.
-                </p>
-                <ul class="project-feature-list">
-                    <li>Product browsing, category filters, details, and customer reviews</li>
-                    <li>Favorites, shopping cart management, and order creation</li>
-                    <li>Firebase sign-in plus Supabase-backed profiles and image storage</li>
-                </ul>
-                <ul class="tag-list d-flex flex-wrap list-unstyled" aria-label="Project technologies">
-                    <li>Flutter</li><li>Supabase</li><li>Firebase Auth</li><li>Bloc / Cubit</li>
-                </ul>
-                <a class="project-repo-link" href="https://github.com/AfraimElkesEleia/VoltMarket" target="_blank" rel="noreferrer">Explore VoltMarket on GitHub <span aria-hidden="true">↗</span></a>
-            </div>
-        </div>
-    </article>
+    {% for project in projects %}
+        {% include 'portfolio/_project_card.html' with project=project number=forloop.counter only %}
+    {% empty %}
+        <p class="empty-projects reveal">New mobile projects are being prepared for the portfolio.</p>
+    {% endfor %}
 </section>
 
 <section class="section about-section" id="about" aria-labelledby="about-title">

@@ -1,0 +1,43 @@
+{% load static %}
+{% with project_url=project.primary_url link_label=project.primary_link_label %}
+<article class="featured-project reveal" data-tilt>
+    {% if project_url %}
+        <a class="project-visual" href="{{ project_url }}" target="_blank" rel="noreferrer" aria-label="Open the {{ project.title }} project">
+    {% else %}
+        <div class="project-visual">
+    {% endif %}
+        {% if project.image_url %}
+            <img class="img-fluid" src="{{ project.image_url }}" alt="{{ project.image_alt|default:project.title }}" width="1672" height="941" loading="lazy" decoding="async">
+        {% elif project.image_path %}
+            <img class="img-fluid" src="{% static project.image_path %}" alt="{{ project.image_alt|default:project.title }}" width="1672" height="941" loading="lazy" decoding="async">
+        {% else %}
+            <span class="project-image-placeholder">{{ project.title }}</span>
+        {% endif %}
+        <span class="project-number">{{ number|stringformat:"02d" }}</span>
+        {% if project_url %}<span class="view-project">{{ link_label }} <b aria-hidden="true">↗</b></span>{% endif %}
+    {% if project_url %}
+        </a>
+    {% else %}
+        </div>
+    {% endif %}
+
+    <div class="project-copy row g-4 mx-0" id="{{ project.slug }}-overview">
+        <div class="col-lg-6 px-0">
+            <p class="project-type">{{ project.project_type }}</p>
+            <h3>{{ project.title }}</h3>
+        </div>
+        <div class="project-summary col-lg-6 px-lg-4 px-0">
+            <p>{{ project.summary }}</p>
+            <ul class="project-feature-list">
+                {% for feature in project.features %}<li>{{ feature }}</li>{% endfor %}
+            </ul>
+            <ul class="tag-list d-flex flex-wrap list-unstyled" aria-label="{{ project.title }} technologies">
+                {% for technology in project.technologies %}<li>{{ technology }}</li>{% endfor %}
+            </ul>
+            {% if project.source_url %}
+                <a class="project-repo-link" href="{{ project.source_url }}" target="_blank" rel="noreferrer">Explore {{ project.title }} on GitHub <span aria-hidden="true">↗</span></a>
+            {% endif %}
+        </div>
+    </div>
+</article>
+{% endwith %}
