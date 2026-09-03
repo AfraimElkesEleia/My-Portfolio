@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,9 @@
     <title>{% block title %}Afraim Elkes Eleia | Mobile Application Developer{% endblock %}</title>
     <link rel="icon" href="{% static 'images/favicon.svg' %}" type="image/svg+xml">
     <script>document.documentElement.classList.add('js');</script>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/5.3.8/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/site.css' %}">
+    <script src="{% static 'vendor/bootstrap/5.3.8/bootstrap.bundle.min.js' %}" defer></script>
     <script src="{% static 'js/site.js' %}" defer></script>
 </head>
 <body>
@@ -17,12 +19,12 @@
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
     <div class="cursor-glow" aria-hidden="true"></div>
 
-    <header class="site-header">
-        <a class="brand" href="#home" aria-label="Afraim Elkes Eleia, home">
+    <header class="site-header d-flex align-items-center justify-content-between">
+        <a class="brand d-flex align-items-center text-decoration-none" href="#home" aria-label="Afraim Elkes Eleia, home">
             <span class="brand-mark">AE</span>
             <span class="brand-copy">Afraim<br>Eleia</span>
         </a>
-        <nav aria-label="Main navigation">
+        <nav class="d-flex align-items-center" aria-label="Main navigation">
             <a href="#work">Work</a>
             <a href="#about">About</a>
             <a href="#journey">Journey</a>
@@ -32,7 +34,7 @@
 
     <main id="main-content">{% block content %}{% endblock %}</main>
 
-    <footer>
+    <footer class="d-flex justify-content-between">
         <p>© {{ current_year }} Afraim Elkes Eleia</p>
         <p>Mobile application developer</p>
         <a href="#home">Back to top ↑</a>
