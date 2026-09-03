@@ -203,13 +203,6 @@ nav a:hover::after, nav a.active::after { width: 100%; }
 .about-lead { margin: 0; color: var(--cream); font-size: clamp(1.5rem, 3vw, 2.7rem); line-height: 1.3; letter-spacing: -.035em; }
 .about-detail { max-width: 490px; color: var(--muted); font-size: 1rem; }
 .about-detail .text-link { margin-top: 20px; color: var(--white); }
-.focus-row { margin-top: 100px; border-top: 1px solid var(--line); }
-.focus-row > div { padding: 27px 30px 5px 0; border-right: 1px solid var(--line); }
-.focus-row > div + div { padding-left: 30px; }
-.focus-row > div:last-child { border-right: 0; }
-.focus-row span { color: var(--blue); font-size: .65rem; font-weight: 800; }
-.focus-row h3 { margin: 23px 0 5px; font-size: 1.25rem; }
-.focus-row p { margin: 0; color: var(--muted); font-size: .79rem; }
 
 .journey-heading { position: sticky; top: 80px; align-self: start; }
 .journey-heading h2 { margin: 20px 0 32px; }
@@ -276,13 +269,11 @@ footer a { text-underline-offset: 4px; }
 .js .featured-project.reveal { --reveal-y: 90px; --reveal-scale: .97; }
 .js .about-lead.reveal { --reveal-x: -30px; --reveal-y: 38px; --reveal-scale: 1; }
 .js .about-detail.reveal { --reveal-x: 38px; --reveal-y: 38px; --reveal-scale: 1; }
-.js .focus-row.reveal { --reveal-y: 45px; --reveal-scale: 1; }
 .js .journey-heading.reveal { --reveal-x: -38px; --reveal-y: 32px; --reveal-scale: 1; }
 .js .journey-item.reveal { --reveal-x: 42px; --reveal-y: 0px; --reveal-scale: 1; }
 .js .certificate-card.reveal { --reveal-y: 74px; --reveal-scale: .975; }
 .js .contact-section.reveal { --reveal-y: 82px; --reveal-scale: .98; }
 
-.js .focus-row.reveal > div,
 .js .journey-item.reveal > *,
 .js .contact-section.reveal > .section-index,
 .js .contact-section.reveal > h2,
@@ -292,15 +283,14 @@ footer a { text-underline-offset: 4px; }
     transform: translateY(18px);
     transition: opacity .7s ease, transform .85s cubic-bezier(.16, 1, .3, 1);
 }
-.js .focus-row.reveal.is-visible > div,
 .js .journey-item.reveal.is-visible > *,
 .js .contact-section.reveal.is-visible > .section-index,
 .js .contact-section.reveal.is-visible > h2,
 .js .contact-section.reveal.is-visible > p:not(.section-index),
 .js .contact-section.reveal.is-visible > .contact-links { opacity: 1; transform: translateY(0); }
-.js .focus-row.reveal > div:nth-child(1), .js .journey-item.reveal > *:nth-child(1) { transition-delay: calc(var(--reveal-delay, 0ms) + 130ms); }
-.js .focus-row.reveal > div:nth-child(2), .js .journey-item.reveal > *:nth-child(2) { transition-delay: calc(var(--reveal-delay, 0ms) + 200ms); }
-.js .focus-row.reveal > div:nth-child(3), .js .journey-item.reveal > *:nth-child(3) { transition-delay: calc(var(--reveal-delay, 0ms) + 270ms); }
+.js .journey-item.reveal > *:nth-child(1) { transition-delay: calc(var(--reveal-delay, 0ms) + 130ms); }
+.js .journey-item.reveal > *:nth-child(2) { transition-delay: calc(var(--reveal-delay, 0ms) + 200ms); }
+.js .journey-item.reveal > *:nth-child(3) { transition-delay: calc(var(--reveal-delay, 0ms) + 270ms); }
 .js .journey-item.reveal > *:nth-child(4) { transition-delay: calc(var(--reveal-delay, 0ms) + 340ms); }
 .js .contact-section.reveal > .section-index { transition-delay: calc(var(--reveal-delay, 0ms) + 100ms); }
 .js .contact-section.reveal > h2 { transition-delay: calc(var(--reveal-delay, 0ms) + 180ms); }
@@ -337,8 +327,6 @@ footer a { text-underline-offset: 4px; }
     .section { padding-block: 95px; }
     .section h2, .contact-section h2 { font-size: clamp(3.1rem, 16vw, 5.2rem); }
     .view-project { opacity: 1; transform: none; }
-    .focus-row { grid-template-columns: 1fr; margin-top: 60px; }
-    .focus-row > div, .focus-row > div + div { padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }
     .journey-item { grid-template-columns: 35px 1fr 24px; }
     .journey-item > p { grid-column: 2 / 4; }
     .certificate-showcase { margin-top: 60px; gap: 42px; }
