@@ -175,6 +175,7 @@ nav a:hover::after, nav a.active::after { width: 100%; }
 .section-note, .journey-heading > p { margin: 0; color: var(--muted); font-size: .92rem; }
 
 .featured-project { perspective: 1200px; }
+.featured-project + .featured-project { margin-top: clamp(95px, 12vw, 165px); }
 .project-visual { position: relative; display: block; overflow: hidden; border: 1px solid var(--line); background: var(--navy-900); box-shadow: 0 35px 100px rgba(0, 0, 0, .38); transition: transform .25s ease-out; }
 .project-visual::after { position: absolute; inset: 0; content: ""; box-shadow: inset 0 0 0 1px rgba(255,255,255,.05); pointer-events: none; }
 .project-visual img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform 1.1s cubic-bezier(.16, 1, .3, 1), filter .5s; }
@@ -186,9 +187,14 @@ nav a:hover::after, nav a.active::after { width: 100%; }
 .project-copy { padding-top: 31px; }
 .project-copy h3 { margin: 2px 0 0; font-size: clamp(3rem, 6vw, 6rem); line-height: 1; letter-spacing: -.06em; text-transform: uppercase; }
 .project-summary > p:first-child { margin: 0; color: #cfdaea; font-size: clamp(1rem, 1.8vw, 1.25rem); }
-.mock-note { color: var(--muted); font-size: .75rem; }
+.project-feature-list { margin: 22px 0 0; padding: 0; display: grid; gap: 10px; list-style: none; color: var(--muted); font-size: .82rem; }
+.project-feature-list li { position: relative; padding-left: 18px; }
+.project-feature-list li::before { position: absolute; top: .64em; left: 0; width: 6px; height: 6px; content: ""; border: 1px solid var(--blue-soft); transform: rotate(45deg); }
 .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 23px 0 0; padding: 0; list-style: none; }
 .tag-list li { padding: 7px 11px; border: 1px solid var(--line); border-radius: 99px; color: var(--blue-soft); font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.project-repo-link { margin-top: 25px; display: inline-flex; align-items: center; gap: 10px; color: var(--white); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-decoration: underline; text-decoration-color: rgba(157, 232, 255, .45); text-underline-offset: 7px; text-transform: uppercase; }
+.project-repo-link span { color: var(--blue-soft); font-size: 1rem; transition: transform .25s; }
+.project-repo-link:hover span { transform: translate(3px, -3px); }
 
 .about-grid { margin-top: 70px; }
 .about-lead { margin: 0; color: var(--cream); font-size: clamp(1.5rem, 3vw, 2.7rem); line-height: 1.3; letter-spacing: -.035em; }
