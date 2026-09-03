@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Name | Django Developer{% endblock %}
+
+{% block content %}
+<section class="hero" aria-labelledby="hero-title">
+    <div class="eyebrow">Hello, I am</div>
+    <h1 id="hero-title">Your Name<span>.</span></h1>
+    <p class="hero-role">Django developer &amp; creative problem solver</p>
+    <p class="hero-copy">
+        I build reliable, thoughtful web experiences that turn complex ideas into
+        simple products people enjoy using.
+    </p>
+    <div class="hero-actions">
+        <a class="button button-primary" href="#projects">View my work</a>
+        <a class="button button-secondary" href="#contact">Let's talk</a>
+    </div>
+    <div class="hero-meta" aria-label="Quick facts">
+        <span>Based in Cairo, Egypt</span>
+        <span>Available for opportunities</span>
+    </div>
+</section>
+
+<section class="section about" id="about" aria-labelledby="about-title">
+    <div class="section-label">01 / About</div>
+    <div class="section-content">
+        <h2 id="about-title">I care about the details that make software feel effortless.</h2>
+        <p>
+            Replace this introduction with your own story. Share what you build,
+            the problems you enjoy solving, and what makes your approach unique.
+        </p>
+    </div>
+</section>
+
+<section class="section projects-section" id="projects" aria-labelledby="projects-title">
+    <div class="section-heading">
+        <div>
+            <div class="section-label">02 / Selected work</div>
+            <h2 id="projects-title">Projects with purpose.</h2>
+        </div>
+        <p>Add and reorder projects from the Django admin.</p>
+    </div>
+
+    <div class="project-grid">
+        {% for project in projects %}
+        <article class="project-card">
+            {% if project.image_url %}
+            <img src="{{ project.image_url }}" alt="Preview of {{ project.title }}">
+            {% else %}
+            <div class="project-placeholder" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</div>
+            {% endif %}
+            <div class="project-body">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.summary }}</p>
+                <ul class="tag-list" aria-label="Technologies used">
+                    {% for technology in project.technologies %}<li>{{ technology }}</li>{% endfor %}
+                </ul>
+                <div class="project-links">
+                    {% if project.live_url %}<a href="{{ project.live_url }}" target="_blank" rel="noreferrer">Live project <span aria-hidden="true">&nearr;</span></a>{% endif %}
+                    {% if project.source_url %}<a href="{{ project.source_url }}" target="_blank" rel="noreferrer">Source <span aria-hidden="true">&nearr;</span></a>{% endif %}
+                </div>
+            </div>
+        </article>
+        {% empty %}
+        <div class="empty-projects">
+            <p>Your featured projects will appear here.</p>
+            <span>Create a superuser, sign in at <strong>/admin/</strong>, and add your first project.</span>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section skills" id="skills" aria-labelledby="skills-title">
+    <div class="section-label">03 / Capabilities</div>
+    <div class="section-content">
+        <h2 id="skills-title">From idea to dependable product.</h2>
+        <div class="skill-grid">
+            <div><span>01</span><h3>Backend</h3><p>Django, Python, REST APIs, SQL</p></div>
+            <div><span>02</span><h3>Frontend</h3><p>HTML, CSS, JavaScript, responsive UI</p></div>
+            <div><span>03</span><h3>Workflow</h3><p>Git, testing, deployment, collaboration</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="section-label">04 / Contact</div>
+    <h2 id="contact-title">Have a project in mind?</h2>
+    <p>I am always interested in thoughtful work and new collaborations.</p>
+    <a class="contact-link" href="mailto:hello@example.com">hello@example.com <span aria-hidden="true">&nearr;</span></a>
+</section>
+{% endblock %}
