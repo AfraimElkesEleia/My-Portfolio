@@ -232,8 +232,15 @@ nav a:hover::after, nav a.active::after { width: 100%; }
 .contact-section::before { position: absolute; right: -14%; bottom: -56%; width: 650px; height: 650px; content: ""; border: 1px solid rgba(157,232,255,.22); border-radius: 50%; box-shadow: 0 0 100px rgba(54,197,240,.08); }
 .contact-section h2 { position: relative; margin: 23px 0 28px; z-index: 1; }
 .contact-section > p:not(.section-index) { max-width: 450px; color: var(--muted); }
-.contact-button { position: relative; z-index: 1; margin-top: 23px; color: var(--navy-950); background: var(--blue-soft); }
-.contact-button span { font-size: 1rem; }
+.contact-links { position: relative; z-index: 1; width: min(100%, 830px); margin-top: 25px; }
+.contact-card { min-height: 91px; padding: 17px 19px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(157, 232, 255, .22); color: var(--white); background: rgba(3, 9, 24, .34); text-decoration: none; backdrop-filter: blur(9px); transition: color .25s, background .25s, border-color .25s, transform .25s; }
+.contact-card > span:first-child { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.contact-card small { color: var(--blue-soft); font-size: .57rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.contact-card strong { overflow-wrap: anywhere; font-size: clamp(.8rem, 1.25vw, 1rem); font-weight: 700; letter-spacing: -.01em; }
+.contact-card-arrow { flex: 0 0 auto; margin-left: 16px; color: var(--blue-soft); font-size: 1.2rem; transition: transform .25s; }
+.contact-card:hover { color: var(--navy-950); background: var(--blue-soft); border-color: var(--blue-soft); transform: translateY(-3px); }
+.contact-card:hover small, .contact-card:hover .contact-card-arrow { color: var(--navy-700); }
+.contact-card:hover .contact-card-arrow { transform: translate(3px, -3px); }
 .contact-orbit { position: absolute; right: 3%; bottom: -20%; width: 390px; height: 390px; border: 1px solid rgba(157,232,255,.21); border-radius: 50%; animation: breathe 4s ease-in-out infinite; }
 .contact-orbit::before, .contact-orbit::after { position: absolute; inset: 14%; content: ""; border: inherit; border-radius: inherit; }
 .contact-orbit::after { inset: 30%; }
@@ -281,6 +288,8 @@ footer a { text-underline-offset: 4px; }
     .journey-item > p { grid-column: 2 / 4; }
     .certificate-showcase { margin-top: 60px; gap: 42px; }
     .contact-section { min-height: 620px; padding: 40px 24px; }
+    .contact-links { margin-top: 20px; }
+    .contact-card { min-height: 78px; }
     .contact-orbit { opacity: .5; }
     footer { flex-direction: column; }
 }
