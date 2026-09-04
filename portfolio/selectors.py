@@ -18,6 +18,8 @@ PROJECT_CARD_FIELDS = (
     'image_url',
     'image_alt',
     'display_order',
+    'section',
+    'is_mock',
 )
 
 

@@ -23,8 +23,8 @@
 
     <div class="project-copy row g-4 mx-0" id="{{ project.slug }}-overview">
         <div class="col-lg-6 px-0">
-            <p class="project-type">{{ project.project_type }}</p>
-            <h3>{{ project.title }}</h3>
+            <p class="project-type">{% if project.is_mock %}Mock project · {% endif %}{{ project.project_type }}</p>
+            {% if training %}<h4>{{ project.title }}</h4>{% else %}<h3>{{ project.title }}</h3>{% endif %}
         </div>
         <div class="project-summary col-lg-6 px-lg-4 px-0">
             <p>{{ project.summary }}</p>

@@ -1,0 +1,29 @@
+<article class="repository-card reveal" aria-labelledby="{{ project.slug }}-title">
+    <div class="repository-card-top">
+        <svg class="repository-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 3H20v19H6.5A2.5 2.5 0 0 1 4 19.5v-14A2.5 2.5 0 0 1 6.5 3Z"/>
+            <path d="m10 7-2 2 2 2m4-4 2 2-2 2"/>
+        </svg>
+        <span class="repository-status">{% if project.is_mock %}Mock project{% else %}Training project{% endif %}</span>
+        <span class="repository-number">{{ number|stringformat:"02d" }}</span>
+    </div>
+    <p class="repository-type">{{ project.project_type }}</p>
+    <h4 id="{{ project.slug }}-title">{{ project.title }}</h4>
+    <p class="repository-summary">{{ project.summary }}</p>
+    {% if project.features %}
+        <ul class="project-feature-list">
+            {% for feature in project.features %}<li>{{ feature }}</li>{% endfor %}
+        </ul>
+    {% endif %}
+    <ul class="tag-list" aria-label="{{ project.title }} technologies">
+        {% for technology in project.technologies %}<li>{{ technology }}</li>{% endfor %}
+    </ul>
+    <div class="repository-footer">
+        {% if project.source_url %}
+            <a href="{{ project.source_url }}" target="_blank" rel="noreferrer" aria-label="View {{ project.title }} repository">View repository <span aria-hidden="true">↗</span></a>
+        {% else %}
+            <span class="repository-pending">Repository coming soon</span>
+            <span class="repository-pending-icon" aria-hidden="true">&lt;/&gt;</span>
+        {% endif %}
+    </div>
+</article>

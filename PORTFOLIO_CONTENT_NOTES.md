@@ -19,11 +19,21 @@ These notes capture confirmed personal content and presentation decisions for th
 - This section should communicate curiosity, continuous learning, and participation during university instead of appearing as a flat certificate gallery.
 - The **DEPI certificate** is a major certificate and should be displayed prominently because it supports the portfolio's focus on mobile application development.
 
-## Future DEPI projects
+## DEPI projects
 
-- Two Kotlin project repositories completed through DEPI will be added later.
-- Repository links, project names, screenshots, technologies, and descriptions are still pending.
-- When added, these projects should be connected to the DEPI experience and positioned as evidence of Android/mobile development skills.
+- A DEPI subsection under Selected work presents projects from the mobile development training.
+- Three mock projects (TaskFlow, Weatherly, and SpendWise) are temporary examples, not claims of completed work.
+- Real repository links, names, technologies, and descriptions are still pending. Screenshots are optional and are not used by these repository cards.
+- Edit the DEPI entries in Django admin, add their source URLs, and clear the mock label when real details are available.
+- DEPI stands for Digital Egypt Pioneers Initiative; Digital Egypt Builders Initiative uses DEBI.
+
+## ITI Summer Training
+
+- A separate subsection after DEPI covers summer training in Django and Flask.
+- CrowdFund replaces the mock entry with the user's real Django crowdfunding final project and GitHub repository.
+- The supplied CrowdFund banner is displayed at full width so its embedded screenshots remain useful.
+- The project uses Python, Django, PostgreSQL, Bootstrap, and JavaScript. Flask describes the broader training, not this repository.
+- The project remains editable through Django admin; other ITI projects can still use cards without screenshots.
 
 ## Current design status
 

@@ -16,6 +16,11 @@ class ProjectQuerySet(models.QuerySet):
 
 
 class Project(models.Model):
+    class Section(models.TextChoices):
+        SELECTED = 'selected', 'Selected work'
+        DEPI = 'depi', 'DEPI projects'
+        ITI = 'iti', 'ITI Summer Training'
+
     title = models.CharField(max_length=120)
     slug = models.SlugField(max_length=140, unique=True)
     project_type = models.CharField(max_length=120, default='Mobile application')
@@ -34,6 +39,13 @@ class Project(models.Model):
     )
     image_url = models.URLField(blank=True)
     image_alt = models.CharField(max_length=255, blank=True)
+    section = models.CharField(
+        max_length=20, choices=Section.choices, default=Section.SELECTED,
+    )
+    is_mock = models.BooleanField(
+        default=False,
+        help_text='Label sample content as a mock project until real project details are added.',
+    )
     featured = models.BooleanField(default=True)
     display_order = models.PositiveSmallIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
